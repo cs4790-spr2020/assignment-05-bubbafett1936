@@ -1,0 +1,14 @@
+#!/bin/bash
+
+dotnet sln ./BlabberApp.sln add ./BlabberApp.Client/BlabberApp.Client.csproj ./BlabberApp.DataStore/BlabberApp.DataStore.csproj ./BlabberApp.DataStoreTest/BlabberApp.DataStoreTest.csproj ./BlabberApp.Domain/BlabberApp.Domain.csproj ./BlabberApp.DomainTest/BlabberApp.DomainTest.csproj ./BlabberApp.Services/BlabberApp.Services.csproj ./BlabberApp.ServicesTest/BlabberApp.ServicesTest.csproj ./BlabberApp.WebApi/BlabberApp.WebApi.csproj ./BlabberApp.WebApiTest/BlabberApp.WebApiTest.csproj
+dotnet add ./BlabberApp.Client/BlabberApp.Client.csproj reference ./BlabberApp.DataStore/BlabberApp.DataStore.csproj
+dotnet add ./BlabberApp.Client/BlabberApp.Client.csproj reference ./BlabberApp.Domain/BlabberApp.Domain.csproj
+dotnet add ./BlabberApp.Client/BlabberApp.Client.csproj reference ./BlabberApp.Services/BlabberApp.Services.csproj
+dotnet add ./BlabberApp.DataStore/BlabberApp.DataStore.csproj reference ./BlabberApp.Domain/BlabberApp.Domain.csproj 
+dotnet add ./BlabberApp.DataStoreTest/BlabberApp.DataStoreTest.csproj reference ./BlabberApp.DataStore/BlabberApp.DataStore.csproj
+dotnet add ./BlabberApp.DomainTest/BlabberApp.DomainTest.csproj reference ./BlabberApp.Domain/BlabberApp.Domain.csproj
+dotnet add ./BlabberApp.Services/BlabberApp.Services.csproj reference ./BlabberApp.Domain/BlabberApp.Domain.csproj
+dotnet add ./BlabberApp.Services/BlabberApp.Services.csproj reference ./BlabberApp.DataStore/BlabberApp.DataStore.csproj
+dotnet add ./BlabberApp.ServicesTest/BlabberApp.ServicesTest.csproj reference ./BlabberApp.Services/BlabberApp.Services.csproj
+dotnet add ./BlabberApp.WebApi/BlabberApp.WebApi.csproj reference ./BlabberApp.DataStore/BlabberApp.DataStore.csproj
+dotnet add ./BlabberApp.WebApi/BlabberApp.WebApiTest.csproj reference ./BlabberApp.WebApi/BlabberApp.WebApi.csproj

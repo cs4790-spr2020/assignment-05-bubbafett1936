@@ -1,0 +1,14 @@
+#!/bin/bash
+
+dotnet new sln -o .
+dotnet new webapp -o BlabberApp.Client
+dotnet new mstest -o BlabberApp.ClientTest
+dotnet new console -o BlabberApp.Console
+dotnet new webapi -o BlabberApp.WebApi
+dotnet new mstest -o BlabberApp.WebApiTest
+dotnet new classlib -o BlabberApp.DataStore
+dotnet new mstest -o BlabberApp.DataStoreTest
+dotnet new classlib -o BlabberApp.Domain
+dotnet new mstest -o BlabberApp.DomainTest
+dotnet new classlib -o BlabberApp.Services
+dotnet new mstest -o BlabberApp.ServicesTest
