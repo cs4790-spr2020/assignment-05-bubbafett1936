@@ -30,7 +30,14 @@ namespace BlabberApp.DataStore.Plugins
         }
 
         public IEnumerable ReadByUserId(string id) {
-            return null;
+            ArrayList al_blabs = new ArrayList();
+            foreach (Blab blab in _buffer) {
+                if (blab.User.Email.Equals(id) ) {
+                    al_blabs.Add(blab);
+                }
+            }
+            
+            return al_blabs.Count > 0 ? al_blabs : null;
         }
 
         public IEntity ReadByUserEmail(string email) {

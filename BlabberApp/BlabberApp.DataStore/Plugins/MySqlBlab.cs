@@ -47,6 +47,7 @@ namespace BlabberApp.DataStore.Plugins {
                 daBlabs.Fill(dsBlabs);
                 ArrayList alBlabs = new ArrayList();
                 foreach (DataRow row in dsBlabs.Tables[0].Rows) alBlabs.Add(DataRow2Blab(row) );
+                
                 return alBlabs;
             } catch (Exception ex) {
                 throw new Exception(ex.ToString() );
@@ -55,18 +56,14 @@ namespace BlabberApp.DataStore.Plugins {
         
         public IEntity ReadById(Guid id) {
             try {
-                string sql = $"SELECT * FROM blabs WHERE blabs.sys_id == '{id.ToString() }'";
+                string sql = $"SELECT * FROM blabs WHERE blabs.sys_id = '{id.ToString() }'";
                 MySqlDataAdapter daBlab = new MySqlDataAdapter(sql, _dcBlab);
                 MySqlCommandBuilder cbBlab = new MySqlCommandBuilder(daBlab);
                 DataSet dsBlab = new DataSet();
                 daBlab.Fill(dsBlab, "blabs");
                 DataRow row = dsBlab.Tables[0].Rows[0];
-                Blab blab = new Blab();
-                blab.Id = new Guid(row["sys_id"].ToString() );
-                blab.User.Email = row["email"].ToString();
-                blab.DTTM = (DateTime) row["dttm_created"];
-                blab.Message = row["message"].ToString();
-                return blab;
+                
+                return DataRow2Blab(row);
             } catch (Exception ex) {
                 throw new Exception(ex.ToString() );
             }
@@ -80,7 +77,8 @@ namespace BlabberApp.DataStore.Plugins {
                 DataSet dsBlabs = new DataSet();
                 daBlabs.Fill(dsBlabs);
                 ArrayList alBlabs = new ArrayList();
-                foreach (DataRow row in dsBlabs.Tables[0].Rows) alBlabs.Add(row);
+                foreach (DataRow row in dsBlabs.Tables[0].Rows) alBlabs.Add(DataRow2Blab(row) );
+
                 return alBlabs;
             } catch (Exception e) {
                 throw new Exception(e.ToString() );

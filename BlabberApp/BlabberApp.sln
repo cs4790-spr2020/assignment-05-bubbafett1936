@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlabberApp.Services", "Blab
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlabberApp.ServicesTest", "BlabberApp.ServicesTest\BlabberApp.ServicesTest.csproj", "{D1F269D0-D00A-40FB-AB06-F871B98ECC31}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlabberApp.ClientTest", "BlabberApp.ClientTest\BlabberApp.ClientTest.csproj", "{F7BFFF7F-1906-4943-B503-8EDFBEB84909}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -128,5 +130,17 @@ Global
 		{D1F269D0-D00A-40FB-AB06-F871B98ECC31}.Release|x64.Build.0 = Release|Any CPU
 		{D1F269D0-D00A-40FB-AB06-F871B98ECC31}.Release|x86.ActiveCfg = Release|Any CPU
 		{D1F269D0-D00A-40FB-AB06-F871B98ECC31}.Release|x86.Build.0 = Release|Any CPU
+		{F7BFFF7F-1906-4943-B503-8EDFBEB84909}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7BFFF7F-1906-4943-B503-8EDFBEB84909}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7BFFF7F-1906-4943-B503-8EDFBEB84909}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{F7BFFF7F-1906-4943-B503-8EDFBEB84909}.Debug|x64.Build.0 = Debug|Any CPU
+		{F7BFFF7F-1906-4943-B503-8EDFBEB84909}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{F7BFFF7F-1906-4943-B503-8EDFBEB84909}.Debug|x86.Build.0 = Debug|Any CPU
+		{F7BFFF7F-1906-4943-B503-8EDFBEB84909}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7BFFF7F-1906-4943-B503-8EDFBEB84909}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7BFFF7F-1906-4943-B503-8EDFBEB84909}.Release|x64.ActiveCfg = Release|Any CPU
+		{F7BFFF7F-1906-4943-B503-8EDFBEB84909}.Release|x64.Build.0 = Release|Any CPU
+		{F7BFFF7F-1906-4943-B503-8EDFBEB84909}.Release|x86.ActiveCfg = Release|Any CPU
+		{F7BFFF7F-1906-4943-B503-8EDFBEB84909}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

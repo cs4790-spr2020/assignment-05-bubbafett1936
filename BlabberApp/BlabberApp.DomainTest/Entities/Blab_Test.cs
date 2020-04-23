@@ -20,7 +20,7 @@ namespace BlabberApp.DomainTest.Entities {
         [TestMethod]
         public void TestId() {
             // Arrange
-            Blab _harness2 = new Blab();
+            Blab _harness2 = new Blab("Anonymous blabber");
             Guid expected = _harness2.Id;
             // Act
             Guid actual = _harness2.Id;
@@ -31,11 +31,27 @@ namespace BlabberApp.DomainTest.Entities {
         [TestMethod]
         public void TestDTTM() {
             // Arrange
-            Blab Expected = new Blab();
+            Blab _harness3 = new Blab(new User() );
+            DateTime actual = DateTime.Now;
             // Act
-            Blab Actual = new Blab();
+            _harness3.DTTM = actual;
             // Assert
-            Assert.AreEqual(Expected.DTTM.ToString(), Actual.DTTM.ToString());
+            Assert.AreEqual(_harness3.DTTM.ToString(), actual.ToString() );
+        }
+
+        [TestMethod]
+        public void Test_Valid_Construction() {
+            // Arrange
+            User testuser = new User("testuser@email.com");
+            testuser.LastLoginDTTM = DateTime.Now;
+            testuser.RegisterDTTM = DateTime.Now;
+
+            // Act
+            Blab _harness4 = new Blab(testuser, "test string");
+            _harness4.DTTM = DateTime.Now;
+
+            // Assert
+            Assert.IsTrue(_harness4.IsValid() );
         }
     }
 }

@@ -57,6 +57,7 @@ namespace BlabberApp.DataStore.Plugins {
                 daUsers.Fill(dsUsers, "users");
                 ArrayList alUsers = new ArrayList();
                 foreach (DataRow row in dsUsers.Tables[0].Rows) alUsers.Add(DataRow2User(row) );
+
                 return alUsers;
             } catch (Exception ex) {
                 throw new Exception(ex.ToString() );
@@ -70,13 +71,8 @@ namespace BlabberApp.DataStore.Plugins {
                 MySqlCommandBuilder cbUser = new MySqlCommandBuilder(daUser);
                 DataSet dsUser = new DataSet();
                 daUser.Fill(dsUser, "users");
-                DataRow row = dsUser.Tables[0].Rows[0];
-                User user = new User();
-                user.Id = new Guid(row["sys_id"].ToString() );
-                user.Email = row["email"].ToString();
-                user.RegisterDTTM = (DateTime) row["dttm_registration"];
-                user.LastLoginDTTM = (DateTime) row["dttm_last_login"];
-                return user;
+
+                return DataRow2User(dsUser.Tables[0].Rows[0] );
             } catch (Exception ex) {
                 throw new Exception(ex.ToString() );
             }
@@ -91,14 +87,8 @@ namespace BlabberApp.DataStore.Plugins {
                 daUser.Fill(dsUser, "users");
                 if (dsUser.Tables[0].Rows.Count < 1)
                     throw new DataException($"User {id} not found");
-                DataRow row = dsUser.Tables[0].Rows[0];
-                User user = new User();
-                user.Id = new Guid(row["sys_id"].ToString());
-                user.Email = row["email"].ToString();
-                user.RegisterDTTM = (DateTime)row["dttm_registration"];
-                user.LastLoginDTTM = (DateTime)row["dttm_last_login"];
 
-                return user;
+                return DataRow2User(dsUser.Tables[0].Rows[0] );
             } catch (DataException de) {
                 throw new DataException(de.Message);
             } catch (Exception ex) {
@@ -120,7 +110,6 @@ namespace BlabberApp.DataStore.Plugins {
         private User DataRow2User(DataRow row)
         {
             User user = new User();
-
             user.Id = new Guid(row["sys_id"].ToString());
             user.Email = row["email"].ToString();
             user.RegisterDTTM = (DateTime)row["dttm_registration"];

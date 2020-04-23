@@ -37,18 +37,18 @@ namespace BlabberApp.Domain.Entities {
         }
 
         public User() {
-            _id = Guid.NewGuid();
+            Id = Guid.NewGuid();
         }
 
         public User(string email) {
-            _id = Guid.NewGuid();
+            Id = Guid.NewGuid();
             Email = email;
         }
 
         public bool IsValid() {
-            if (_id == null) throw new ArgumentNullException();
-            if (_email == null) throw new ArgumentNullException();
-            if (_email.ToString().Equals("") ) throw new FormatException();
+            if (Id == null) throw new ArgumentNullException();
+            if (Email == null) throw new ArgumentNullException();
+            if (Email.Equals("") ) throw new FormatException();
             if (LastLoginDTTM == null) throw new ArgumentNullException();
             if (RegisterDTTM == null) throw new ArgumentNullException();
             return true;

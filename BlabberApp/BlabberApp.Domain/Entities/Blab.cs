@@ -25,30 +25,34 @@ namespace BlabberApp.Domain.Entities
             set { _user = value; }
         }
         public Blab() {
-            _id = Guid.NewGuid();
-            _user = new User();
-            _message = "";
+            Id = Guid.NewGuid();
+            User = new User();
+            Message = "";
         }
 
         public Blab(string message) {
-            _id = Guid.NewGuid();
-            _user = new User();
-            _message = message;
+            Id = Guid.NewGuid();
+            User = new User();
+            Message = message;
         }
 
         public Blab(User user) {
-            _id = Guid.NewGuid();
-            _user = user;
-            _message = "";
+            Id = Guid.NewGuid();
+            User = user;
+            Message = "";
         }
 
         public Blab(User user, string message) {
-            _id = Guid.NewGuid();
-            _user = user;
-            _message = message;
+            Id = Guid.NewGuid();
+            User = user;
+            Message = message;
         }
 
         public bool IsValid() {
+            if (Id == null) throw new ArgumentNullException();
+            if (User.IsValid() == false) throw new ArgumentNullException();
+            if (DTTM == null) throw new ArgumentNullException();
+            if (Message == null) throw new ArgumentNullException();
             return true;
         }
     }
